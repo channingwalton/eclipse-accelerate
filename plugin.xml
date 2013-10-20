@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="com.teaminabox.eclipse.accelerate"
+   name="Accelerate Plug-in"
+   version="1.0.0"
+   provider-name=""
+   class="com.teaminabox.eclipse.accelerate.AcceleratePlugin">
+
+   <runtime>
+      <library name="accelerate.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.runtime.compatibility"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.ui.editors"/>
+   </requires>
+
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Accelerate"
+            id="com.teaminabox.eclipse.accelerate">
+      </category>
+      <view
+            name="Accelerate"
+            icon="icons/discovery.gif"
+            category="com.teaminabox.eclipse.accelerate"
+            class="com.teaminabox.eclipse.accelerate.AccelerateView"
+            id="com.teaminabox.eclipse.accelerate.AccelerateView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               id="com.teaminabox.eclipse.accelerate.AccelerateView"
+               relationship="right">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>
